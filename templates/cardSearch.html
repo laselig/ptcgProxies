@@ -1,0 +1,39 @@
+<!-- source: https://templated.co/items/demos/retrospect/generic.html -->
+
+<!-- extend generic layout -->
+{% extends "generic.html" %}
+
+{% block title %}
+  <h2> Card Search </h2>
+{% endblock %}
+
+
+
+{% block proxies %}
+<div class = "container">
+  <form method="post" name = "card search">
+      {{ form.hidden_tag() }}
+      <p>
+          <br>
+          <div class="4u 12u$(xsmall)">
+            {{ form.attack_text(placeholder="Has attack text containing..") }}
+          </div>
+          {% for error in form.attack_text.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+      </p>
+
+      <p> 
+          <div class="4u 12u$(xsmall)">
+            {{ form.ability_text(placeholder="Has ability text containing..") }}
+          </div>
+          {% for error in form.ability_text.errors %}
+              <span style="color: red;">{{ error }}</span>
+          {% endfor %}
+      </p>
+
+      <input type="submit" value="Search">
+
+  </form>
+</div>
+{% endblock %}
